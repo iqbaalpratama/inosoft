@@ -1,0 +1,37 @@
+Car create:
+{
+    "name" : "Toyota Xpander",
+    "year" : 2021,
+    "color": "Black",
+    "price" : 400000000,
+    "stock" : 12,
+    "machine": "ICE",
+    "type": "Crossover",
+    "passenger_total": 6
+}
+
+Motorcycle create:
+{
+    "name" : "Honda Beat",
+    "year" : 2018,
+    "color": "Black",
+    "price" : 13000000,
+    "stock" : 8,
+    "machine": "Injeksi",
+    "suspension_type": "Pararel Fork",
+    "transmission_type": "Matic"
+}
+
+Selling Car:
+{
+    "buyer_id": "62fa757a847e59a10205c9e3",
+    "car_id": "62fa6bd9b6ef6b82550911e2",
+    "quantity": 3
+}
+
+Selling Motorcycle:
+{
+    "buyer_id": "62fa757a847e59a10205c9e3",
+    "motorcycle_id": "62fa6bd9b6ef6b82550911e2",
+    "quantity": 3
+}
