@@ -29,6 +29,6 @@ class CreateSellingDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('selling_detail');
+        Schema::dropIfExists('selling_detail_cars');
     }
 }
