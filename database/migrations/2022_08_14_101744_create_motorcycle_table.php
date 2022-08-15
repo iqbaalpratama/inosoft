@@ -13,15 +13,17 @@ class CreateMotorcycleTable extends Migration
      */
     public function up()
     {
-        Schema::create('motorcycle', function (Blueprint $table) {
+        Schema::create('motorcycles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('year');
             $table->string('color');
             $table->integer('price');
+            $table->integer('stock');
             $table->string('machine');
             $table->string('suspension_type');
             $table->string('transmission_type');
+            $table->integer('total_selling');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ class CreateMotorcycleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motorcycle');
+        Schema::dropIfExists('motorcycles');
     }
 }
