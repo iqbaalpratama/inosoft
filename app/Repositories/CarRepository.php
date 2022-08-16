@@ -3,14 +3,17 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\Car;
+use App\Models\SellingCar;
 
 class CarRepository{
 
     protected Car $car;
+    protected SellingCar $sellingCar;
 
-    public function __construct(Car $car)
+    public function __construct(Car $car, SellingCar $sellingCar)
     {
         $this->car = $car;
+        $this->sellingCar = $sellingCar;
     }
 
     public function getAll()
@@ -31,6 +34,12 @@ class CarRepository{
         return $car; 
     }
 
+    public function getCarSellingReport(String $id)
+    {
+        $car = $this->car::find($id);
+        $car['selling'] = $this->sellingCar::where('car_id', $id)->get()->toArray();
+        return $car; 
+    }
 
     public function create(array $data): Car
     {

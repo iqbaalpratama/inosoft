@@ -71,6 +71,25 @@ class MotorcycleController extends Controller
         return response()->json($result, $result['status']);
     }
 
+    public function getSellingReport($id)
+    {
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->motorcycleServices->getMotorcycleSellingReport($id);
+            if(is_null($result['data'])){
+                $result['status'] = 404;
+                $result['error'] = 'Motorcycle not found';
+            }
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'error' => $e->getMessage()
+            ];
+        }
+        return response()->json($result, $result['status']);
+    }
+
     public function save(Request $request)
     {
         $data = $request->all();

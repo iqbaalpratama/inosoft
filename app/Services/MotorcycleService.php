@@ -30,6 +30,12 @@ class MotorcycleService
         return $this->motorcycleRepository->getByName($name);
     }
 
+    public function getMotorcycleSellingReport(String $id)
+    {
+        return $this->motorcycleRepository->getMotorcycleSellingReport($id);
+    }
+
+
     public function saveMotorcycle(array $data)
     {
         $validator = Validator::make($data,[

@@ -3,13 +3,16 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\Motorcycle;
+use App\Models\SellingMotorcycle;
 
 class MotorcycleRepository{
     protected Motorcycle $motorcycle;
+    protected SellingMotorcycle $sellingMotorcycle;
 
-    public function __construct(Motorcycle $motorcycle)
+    public function __construct(Motorcycle $motorcycle, SellingMotorcycle $sellingMotorcycle)
     {
         $this->motorcycle = $motorcycle;
+        $this->sellingMotorcycle = $sellingMotorcycle;
     }
 
     public function getAll()
@@ -30,6 +33,12 @@ class MotorcycleRepository{
         return $motorcycle; 
     }
 
+    public function getMotorcycleSellingReport(String $id)
+    {
+        $motorcycle = $this->motorcycle::find($id);
+        $motorcycle['selling'] = $this->sellingMotorcycle::where('motorcycle_id', $id)->get()->toArray();
+        return $motorcycle; 
+    }
 
     public function create(array $data): Motorcycle
     {

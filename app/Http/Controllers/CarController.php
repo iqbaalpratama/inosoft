@@ -51,6 +51,25 @@ class CarController extends Controller
         return response()->json($result, $result['status']);
     }
 
+    public function getSellingReport($id)
+    {
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->carServices->getCarSellingReport($id);
+            if(is_null($result['data'])){
+                $result['status'] = 404;
+                $result['error'] = 'Car not found';
+            }
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'error' => $e->getMessage()
+            ];
+        }
+        return response()->json($result, $result['status']);
+    }
+
     public function getByName(Request $request)
     {
         $name = $request->query('name');

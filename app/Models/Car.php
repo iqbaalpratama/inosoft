@@ -12,6 +12,6 @@ class Car extends Model
     protected $fillable = ['name', 'year', 'color', 'price', 'stock', 'machine', 'type', 'passenger_total', 'total_selling'];
     public function sells()
     {
-        return $this->hasMany(SellingCar::class, 'car_id', '_id');
+        return $this->hasMany(SellingCar::class, '_id', 'car_id');
     }
 }

@@ -13,7 +13,6 @@ class SellingCarRepository{
         $this->sellingCar = $sellingCar;
     }
 
-
     public function create(array $data): ?SellingCar
     {
         $newSellingCar = new $this->sellingCar();

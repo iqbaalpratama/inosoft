@@ -19,10 +19,17 @@ class CarService
     {
         return $this->carRepository->getAll();
     }
+
     public function getCarById(String $id)
     {
         return $this->carRepository->getById($id);
     }
+
+    public function getCarSellingReport(String $id)
+    {
+        return $this->carRepository->getCarSellingReport($id);
+    }
+
 
     public function getCarByName(String $name)
     {
